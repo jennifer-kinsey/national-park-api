@@ -34,11 +34,8 @@ class ParksController < ApplicationController
   end
 
   private
-  def json_response(object, status = :ok)
-    render json: object, status: status
-  end
 
   def park_params
-    params.permit(:name, :state, :mailingaddress, :phone, :description, :fee, :open_through, :closures, :amenities, :activities, :sq_mi)
+    params.permit(:name, :state, :mailingaddress, :phone, :description, :fee, :open_through, :closure, :amenities, :activities, :sq_mi)
   end
 end
