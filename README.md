@@ -74,13 +74,14 @@ See table below for possible searches and an example of performing in Postman/CU
 | phone_scope | USA |    Returns parks of the phone provided. |
 | description_scope | awesome views | returns all parks matching the words provided in the description |
 | max_fee_scope |    20   |  The max fee allowable of a park; returns all parks of less than or equal value for fee  |
-| open_through_scope* |    November   |  The date the park will close; returns all parks closing in November, in this case.  |
-| closure_scope* |    Main Trail   |  Any trail or road closures in the park; returns all parks with closure on the inputted value.  |
+| open_through_scope \* |    November   |  The date the park will close; returns all parks closing in November, in this case.  |
+| closure_scope \* |    Main Trail   |  Any trail or road closures in the park; returns all parks with closure on the inputted value.  |
 | amenities_scope |    restroom   |  The amenities available at the park; returns all parks having restrooms in this example.  |
 | activities_scope |    horseback riding   |  The activities listed of a park; returns all parks having horseback riding.  |
 | min_sq_mi_scope |    500   |  The area of a park; returns all parks with at least 500 sq feet.  |
 | random | 5 | Depending on integer input, will return a number of random parks; in this case, will return 5 random parks |
 
+\* Further
 
 
 ## Technologies Used
