@@ -11,7 +11,7 @@ class ParksTable < ActiveRecord::Migration[5.1]
       t.string :closure
       t.string :amenities
       t.string :activities
-      t.decimal :sq_mi
+      t.integer :sq_mi
 
       t.timestamps
     end

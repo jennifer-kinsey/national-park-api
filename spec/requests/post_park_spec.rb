@@ -13,7 +13,7 @@ describe "post a park route", :type => :request do
       open_through: "August - then closed for no reason",
       amenities: "restrooms, handicap parking, and water fountains",
       activities: "take selfies, post on facebook",
-      sq_mi: 444.0,
+      sq_mi: 444,
       closure: "Alligator Alley is off limits",
     }
   end
@@ -56,7 +56,7 @@ describe "post a park route", :type => :request do
   end
 
   it 'returns the park sq_mi' do
-    expect(JSON.parse(response.body)['sq_mi']).to eq("444.0")
+    expect(JSON.parse(response.body)['sq_mi']).to eq(444)
   end
 
   it 'returns a created status' do
