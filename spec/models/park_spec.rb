@@ -15,87 +15,95 @@ RSpec.describe Park, type: :model do
   it { should validate_numericality_of :sq_mi }
   it { should validate_numericality_of :fee }
 
-describe "scopes", type: :request do
-  before do
-    @park = FactoryGirl.create(:park)
-  end
-
-  describe "name_scope" do
-    it "returns all parks where search params equals the name" do
-      get "/parks?name_scope=#{@park.name}"
-      expect(JSON.parse(response.body).first['name']).to eq(@park.name)
+  describe "scopes", type: :request do
+    before do
+      @park = FactoryGirl.create(:park)
+      @park2 = FactoryGirl.create(:park)
     end
-  end
 
-  describe "state_scope" do
-    it "returns the all parks where search params equal the state" do
-      get "/parks?state_scope=#{@park.state}"
-      expect(JSON.parse(response.body).first['state']).to eq(@park.state)
+    describe "name_scope" do
+      it "returns all parks where search params equals the name" do
+        get "/parks?name_scope=#{@park.name}"
+        expect(JSON.parse(response.body).first['name']).to eq(@park.name)
+      end
     end
-  end
 
-  describe "mailingaddress_scope" do
-    it "returns all parks where search params equals the mailingaddress" do
-      get "/parks?mailingaddress_scope=#{@park.mailingaddress}"
-      expect(JSON.parse(response.body).first['mailingaddress']).to eq(@park.mailingaddress)
+    describe "state_scope" do
+      it "returns the all parks where search params equal the state" do
+        get "/parks?state_scope=#{@park.state}"
+        expect(JSON.parse(response.body).first['state']).to eq(@park.state)
+      end
     end
-  end
 
-  describe "phone_scope" do
-    it "returns all parks where search params equals the phone" do
-      get "/parks?phone_scope=#{@park.phone}"
-      expect(JSON.parse(response.body).first['phone']).to eq(@park.phone)
+    describe "mailingaddress_scope" do
+      it "returns all parks where search params equals the mailingaddress" do
+        get "/parks?mailingaddress_scope=#{@park.mailingaddress}"
+        expect(JSON.parse(response.body).first['mailingaddress']).to eq(@park.mailingaddress)
+      end
     end
-  end
 
-  describe "description_scope" do
-    it "returns all parks where search params equals the description" do
-      get "/parks?description_scope=#{@park.description}"
-      expect(JSON.parse(response.body).first['description']).to eq(@park.description)
+    describe "phone_scope" do
+      it "returns all parks where search params equals the phone" do
+        get "/parks?phone_scope=#{@park.phone}"
+        expect(JSON.parse(response.body).first['phone']).to eq(@park.phone)
+      end
     end
-  end
 
-  describe "fee_scope" do
-    it "returns all parks where search params equals the fee" do
-      get "/parks?fee_scope=#{@park.fee}"
-      expect(JSON.parse(response.body).first['fee']).to eq(@park.fee)
+    describe "description_scope" do
+      it "returns all parks where search params equals the description" do
+        get "/parks?description_scope=#{@park.description}"
+        expect(JSON.parse(response.body).first['description']).to eq(@park.description)
+      end
     end
-  end
 
-  describe "open_through_scope" do
-    it "returns all parks where search params equals the open_through" do
-      get "/parks?open_through_scope=#{@park.open_through}"
-      expect(JSON.parse(response.body).first['open_through']).to eq(@park.open_through)
+    describe "fee_scope" do
+      it "returns all parks where search params equals the fee" do
+        get "/parks?fee_scope=#{@park.fee}"
+        expect(JSON.parse(response.body).first['fee']).to eq(@park.fee)
+      end
     end
-  end
 
-  describe "closure_scope" do
-    it "returns all parks where search params equals the closure" do
-      get "/parks?closure_scope=#{@park.closure}"
-      expect(JSON.parse(response.body).first['closure']).to eq(@park.closure)
+    describe "open_through_scope" do
+      it "returns all parks where search params equals the open_through" do
+        get "/parks?open_through_scope=#{@park.open_through}"
+        expect(JSON.parse(response.body).first['open_through']).to eq(@park.open_through)
+      end
     end
-  end
 
-  describe "amenities_scope" do
-    it "returns all parks where search params equals the amenities" do
-      get "/parks?amenities_scope=#{@park.amenities}"
-      expect(JSON.parse(response.body).first['amenities']).to eq(@park.amenities)
+    describe "closure_scope" do
+      it "returns all parks where search params equals the closure" do
+        get "/parks?closure_scope=#{@park.closure}"
+        expect(JSON.parse(response.body).first['closure']).to eq(@park.closure)
+      end
     end
-  end
 
-  describe "activities_scope" do
-    it "returns all parks where search params equals the activities" do
-      get "/parks?activities_scope=#{@park.activities}"
-      expect(JSON.parse(response.body).first['activities']).to eq(@park.activities)
+    describe "amenities_scope" do
+      it "returns all parks where search params equals the amenities" do
+        get "/parks?amenities_scope=#{@park.amenities}"
+        expect(JSON.parse(response.body).first['amenities']).to eq(@park.amenities)
+      end
     end
-  end
 
-  describe "sq_mi_scope" do
-    it "returns all parks where search params equals the sq_mi" do
-      get "/parks?sq_mi_scope=#{@park.sq_mi}"
-      expect(JSON.parse(response.body).first['sq_mi']).to eq(@park.sq_mi)
+    describe "activities_scope" do
+      it "returns all parks where search params equals the activities" do
+        get "/parks?activities_scope=#{@park.activities}"
+        expect(JSON.parse(response.body).first['activities']).to eq(@park.activities)
+      end
     end
-  end
 
-end
+    describe "sq_mi_scope" do
+      it "returns all parks where search params equals the sq_mi" do
+        get "/parks?sq_mi_scope=#{@park.sq_mi}"
+        expect(JSON.parse(response.body).first['sq_mi']).to eq(@park.sq_mi)
+      end
+    end
+
+    describe "random" do
+      it "returns a random park" do
+        get "/parks?random=1"
+        expect(JSON.parse(response.body).length).to eq(1)
+      end
+    end
+
+  end
 end

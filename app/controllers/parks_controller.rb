@@ -1,7 +1,7 @@
 class ParksController < ApplicationController
 
   def index
-    @parks = Park.filter(params.slice(:name_scope, :state_scope, :mailingaddress_scope, :phone_scope, :description_scope, :max_fee_scope, :open_through_scope, :closure_scope, :amenities_scope, :min_sq_mi_scope))
+    @parks = Park.filter(params.slice(:name_scope, :state_scope, :mailingaddress_scope, :phone_scope, :description_scope, :max_fee_scope, :open_through_scope, :closure_scope, :amenities_scope, :min_sq_mi_scope, :random))
     json_response(@parks)
   end
 

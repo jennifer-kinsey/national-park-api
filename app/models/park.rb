@@ -18,4 +18,5 @@ class Park < ApplicationRecord
   scope :amenities_scope, -> (amenities){ where("lower(amenities) like ?", "%#{amenities}%".downcase) }
   scope :activities_scope, -> (activities){ where("lower(activities) like ?", "%#{activities}%".downcase) }
   scope :min_sq_mi_scope, -> (sq_mi){ where("sq_mi > ?", sq_mi) }
+  scope :random, -> (limit){ Park.order("RANDOM()").limit(limit) }
 end
