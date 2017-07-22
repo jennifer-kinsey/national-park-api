@@ -1,6 +1,9 @@
 require 'faker'
 
 FactoryGirl.define do
+  factory :user do
+    
+  end
   factory :park do
     name Faker::StarTrek.location + " National Park"
     state Faker::Address.state

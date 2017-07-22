@@ -3,6 +3,7 @@ class Seed
   def self.begin
     seed = Seed.new
     seed.generate_parks
+    seed.generate_users
   end
 
   def generate_parks
@@ -21,6 +22,15 @@ class Seed
         sq_mi: Faker::Number.decimal(3, 3)
       )
     end
+  end
+
+  def generate_users
+    User.create!(
+      email: "randle@email.com",
+      password: '000000',
+      password_confirmation: '000000',
+      id: 42
+    )
   end
 end
 
