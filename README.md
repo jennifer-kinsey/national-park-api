@@ -88,6 +88,14 @@ See table below for possible searches and an example of performing in Postman/CU
 
 \* Further development on these scopes could add more utility. E.g., find all parks that are currently closed or open through an inputted value.
 
+#### Example Park Searches
+
+1) Get all parks in Florida.
+http://localhost:3000/v1/parks?state_scope=Florida
+
+2) Get 3 random parks in Florida.
+http://localhost:3000/v1/parks?state_scope=florida&random=3
+
 
 ## Technologies Used
 
