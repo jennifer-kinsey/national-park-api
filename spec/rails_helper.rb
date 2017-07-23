@@ -64,3 +64,8 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+
+
+User.destroy_all
+Park.destroy_all

@@ -2,8 +2,11 @@ require 'faker'
 
 FactoryGirl.define do
   factory :user do
-    
+    email 'randy@email.com'
+    password 'password'
+    password_confirmation 'password'
   end
+
   factory :park do
     name Faker::StarTrek.location + " National Park"
     state Faker::Address.state

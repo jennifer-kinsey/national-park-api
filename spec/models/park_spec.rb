@@ -19,6 +19,12 @@ RSpec.describe Park, type: :model do
     before do
       @park = FactoryGirl.create(:park)
       @park2 = FactoryGirl.create(:park)
+      # @user = FactoryGirl.create(:user)
+      # post '/auth_user', params: {
+      #   email: @user.email,
+      #   password: @user.password
+      # }
+      # @user_api_key = JSON.parse(response.body)["auth_token"]
     end
 
     describe "name_scope" do

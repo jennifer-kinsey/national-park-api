@@ -6,8 +6,13 @@
 
 ## Description
 
-This is an API that includes (fake) data for National Parks.  It includes multiple scopes listed below for querying.
+This is an API that includes (fake) data for National Parks.  It includes multiple scopes listed below for querying. It includes Authentication using Devise and JWT tokens.
 
+Anyone can access:
+-- GET requests for Parks
+
+ Authenticated users can access:
+-- POST, PATCH, PUT, DELETE requests for Parks
 
 Scopes:
 -Filters park by parameters: name, state, mailing address, phone, description, date open through, closures, amenities, activities.

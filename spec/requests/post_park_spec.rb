@@ -3,8 +3,16 @@ require 'rails_helper'
 describe "post a park route", :type => :request do
 
   before do
+    user = FactoryGirl.create(:user)
+    post '/auth_user', params: {
+      email: user.email,
+      password: user.password
+    }
+
+    @user_api_key = JSON.parse(response.body)["auth_token"]
+
     post '/parks', params: {
-      name: 'Spacelord National Park',
+      name: "Spacelord National Park",
       state: "Florida",
       mailingaddress: "PO BOX Amazing, Kissimmee, FL",
       phone: "(407) 555-1234",
@@ -15,6 +23,7 @@ describe "post a park route", :type => :request do
       activities: "take selfies, post on facebook",
       sq_mi: 444,
       closure: "Alligator Alley is off limits",
+      api_key: @user_api_key
     }
   end
 
@@ -75,7 +84,8 @@ describe "post a park route", :type => :request do
       closure: "Alligator Alley is off limits",
       amenities: "restrooms, handicap parking, and water fountains",
       activities: "take selfies, post on facebook",
-      sq_mi: 444
+      sq_mi: 444,
+      api_key: @user_api_key
     }
     expect(response).to have_http_status(422)
   end

@@ -26,8 +26,8 @@ protected
 
 private
   def http_token
-      @http_token ||= if request.headers['Authorization'].present?
-        request.headers['Authorization'].split(' ').last
+      @http_token ||= if request.params['api_key'].present?
+        request.params['api_key']
       end
   end
 
