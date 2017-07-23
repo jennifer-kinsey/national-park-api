@@ -1,4 +1,4 @@
-class ParksController < ApplicationController
+class V1::ParksController < ApplicationController
   before_action :authenticate_request!, :except => [:show, :index]
 
 

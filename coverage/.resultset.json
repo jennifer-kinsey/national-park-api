@@ -25,12 +25,6 @@
         12,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         1,
         1,
         1,
@@ -664,6 +658,12 @@
         1,
         1,
         1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/kinsey/Desktop/national_park_api/app/models/user.rb": [
@@ -741,7 +741,7 @@
         null,
         null
       ],
-      "/Users/kinsey/Desktop/national_park_api/app/controllers/authentication_controller.rb": [
+      "/Users/kinsey/Desktop/national_park_api/app/controllers/v1/authentication_controller.rb": [
         1,
         1,
         15,
@@ -763,7 +763,7 @@
         null,
         null
       ],
-      "/Users/kinsey/Desktop/national_park_api/app/controllers/parks_controller.rb": [
+      "/Users/kinsey/Desktop/national_park_api/app/controllers/v1/parks_controller.rb": [
         1,
         1,
         null,
@@ -880,13 +880,6 @@
         1,
         1,
         null,
-        null
-      ],
-      "/Users/kinsey/Desktop/national_park_api/spec/models/user_spec.rb": [
-        1,
-        null,
-        1,
-        1,
         null
       ],
       "/Users/kinsey/Desktop/national_park_api/spec/requests/destroy_park_spec.rb": [
@@ -1101,6 +1094,6 @@
         null
       ]
     },
-    "timestamp": 1500827254
+    "timestamp": 1500827992
   }
 }

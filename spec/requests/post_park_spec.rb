@@ -4,14 +4,14 @@ describe "post a park route", :type => :request do
 
   before do
     user = FactoryGirl.create(:user)
-    post '/auth_user', params: {
+    post '/v1/auth_user', params: {
       email: user.email,
       password: user.password
     }
 
     @user_api_key = JSON.parse(response.body)["auth_token"]
 
-    post '/parks', params: {
+    post '/v1/parks', params: {
       name: "Spacelord National Park",
       state: "Florida",
       mailingaddress: "PO BOX Amazing, Kissimmee, FL",
@@ -73,7 +73,7 @@ describe "post a park route", :type => :request do
   end
 
   it 'returns error for missing param in park post' do
-    post '/parks', params: {
+    post '/v1/parks', params: {
       name: '',
       state: "Florida",
       mailingaddress: "PO BOX Amazing, Kissimmee, FL",

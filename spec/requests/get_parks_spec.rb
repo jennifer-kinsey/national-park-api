@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "get all parks route", :type => :request do
   let!(:parks) { FactoryGirl.create_list(:park, 20)}
-  before { get '/parks'}
+  before { get '/v1/parks'}
 
   it 'returns all parks' do
     expect(JSON.parse(response.body).size).to eq(20)
@@ -13,13 +13,13 @@ describe "get all parks route", :type => :request do
   end
 
   it 'returns status code of 404 when not found' do
-    get '/parks/00'
+    get '/v1/parks/00'
     expect(response).to have_http_status(404)
   end
 
   it 'should return 200 for specific park' do
     park1 = parks.first
-    get "/parks/#{park1.id}"
+    get "/v1/parks/#{park1.id}"
     expect(response).to have_http_status(200)
   end
 end

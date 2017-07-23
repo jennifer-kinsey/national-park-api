@@ -19,94 +19,88 @@ RSpec.describe Park, type: :model do
     before do
       @park = FactoryGirl.create(:park)
       @park2 = FactoryGirl.create(:park)
-      # @user = FactoryGirl.create(:user)
-      # post '/auth_user', params: {
-      #   email: @user.email,
-      #   password: @user.password
-      # }
-      # @user_api_key = JSON.parse(response.body)["auth_token"]
     end
 
     describe "name_scope" do
       it "returns all parks where search params equals the name" do
-        get "/parks?name_scope=#{@park.name}"
+        get "/v1/parks?name_scope=#{@park.name}"
         expect(JSON.parse(response.body).first['name']).to eq(@park.name)
       end
     end
 
     describe "state_scope" do
       it "returns the all parks where search params equal the state" do
-        get "/parks?state_scope=#{@park.state}"
+        get "/v1/parks?state_scope=#{@park.state}"
         expect(JSON.parse(response.body).first['state']).to eq(@park.state)
       end
     end
 
     describe "mailingaddress_scope" do
       it "returns all parks where search params equals the mailingaddress" do
-        get "/parks?mailingaddress_scope=#{@park.mailingaddress}"
+        get "/v1/parks?mailingaddress_scope=#{@park.mailingaddress}"
         expect(JSON.parse(response.body).first['mailingaddress']).to eq(@park.mailingaddress)
       end
     end
 
     describe "phone_scope" do
       it "returns all parks where search params equals the phone" do
-        get "/parks?phone_scope=#{@park.phone}"
+        get "/v1/parks?phone_scope=#{@park.phone}"
         expect(JSON.parse(response.body).first['phone']).to eq(@park.phone)
       end
     end
 
     describe "description_scope" do
       it "returns all parks where search params equals the description" do
-        get "/parks?description_scope=#{@park.description}"
+        get "/v1/parks?description_scope=#{@park.description}"
         expect(JSON.parse(response.body).first['description']).to eq(@park.description)
       end
     end
 
     describe "fee_scope" do
       it "returns all parks where search params equals the fee" do
-        get "/parks?fee_scope=#{@park.fee}"
+        get "/v1/parks?fee_scope=#{@park.fee}"
         expect(JSON.parse(response.body).first['fee']).to eq(@park.fee)
       end
     end
 
     describe "open_through_scope" do
       it "returns all parks where search params equals the open_through" do
-        get "/parks?open_through_scope=#{@park.open_through}"
+        get "/v1/parks?open_through_scope=#{@park.open_through}"
         expect(JSON.parse(response.body).first['open_through']).to eq(@park.open_through)
       end
     end
 
     describe "closure_scope" do
       it "returns all parks where search params equals the closure" do
-        get "/parks?closure_scope=#{@park.closure}"
+        get "/v1/parks?closure_scope=#{@park.closure}"
         expect(JSON.parse(response.body).first['closure']).to eq(@park.closure)
       end
     end
 
     describe "amenities_scope" do
       it "returns all parks where search params equals the amenities" do
-        get "/parks?amenities_scope=#{@park.amenities}"
+        get "/v1/parks?amenities_scope=#{@park.amenities}"
         expect(JSON.parse(response.body).first['amenities']).to eq(@park.amenities)
       end
     end
 
     describe "activities_scope" do
       it "returns all parks where search params equals the activities" do
-        get "/parks?activities_scope=#{@park.activities}"
+        get "/v1/parks?activities_scope=#{@park.activities}"
         expect(JSON.parse(response.body).first['activities']).to eq(@park.activities)
       end
     end
 
     describe "sq_mi_scope" do
       it "returns all parks where search params equals the sq_mi" do
-        get "/parks?sq_mi_scope=#{@park.sq_mi}"
+        get "/v1/parks?sq_mi_scope=#{@park.sq_mi}"
         expect(JSON.parse(response.body).first['sq_mi']).to eq(@park.sq_mi)
       end
     end
 
     describe "random" do
       it "returns a random park" do
-        get "/parks?random=1"
+        get "/v1/parks?random=1"
         expect(JSON.parse(response.body).length).to eq(1)
       end
     end

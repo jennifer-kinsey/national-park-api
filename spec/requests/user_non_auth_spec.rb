@@ -6,19 +6,19 @@ describe 'parks#destroy', :type => :request do
   end
 
   it 'gives unauthorized if non user tries to delete the park' do
-    delete "/parks/#{@park.id}"
+    delete "/v1/parks/#{@park.id}"
     expect(response).to have_http_status(401)
   end
 
   it 'gives unauthorized if non user tries to update the park' do
-    put "/parks/#{@park.id}", params: {
+    put "/v1/parks/#{@park.id}", params: {
       name: "Orlando Wetlands Park"
     }
     expect(response).to have_http_status(401)
   end
 
   it 'gives unauthorized if non user tries to post a park' do
-    post '/parks', params: {
+    post '/v1/parks', params: {
       name: "Spacelord National Park",
       state: "Florida",
       mailingaddress: "PO BOX Amazing, Kissimmee, FL",
