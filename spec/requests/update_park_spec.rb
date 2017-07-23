@@ -3,9 +3,16 @@ require 'rails_helper'
 describe "updates a park route", :type => :request do
 
   before do
-    @park = FactoryGirl.create(:park)
-    put "/parks/#{@park.id}", params: {
-      name: "Orlando Wetlands Park"
+    user = FactoryGirl.create(:user)
+    post '/auth_user', params: {
+      email: user.email,
+      password: user.password,
+    }
+    user_api_key = JSON.parse(response.body)["auth_token"]
+    park = FactoryGirl.create(:park)
+    put "/parks/#{park.id}", params: {
+      name: "Orlando Wetlands Park",
+      api_key: user_api_key
     }
   end
 
