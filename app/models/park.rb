@@ -6,7 +6,6 @@ class Park < ApplicationRecord
   validates_numericality_of :sq_mi, :fee
 
 ##Scopes
-# Search by param
   scope :name_scope, -> (name){ where("lower(name) like ?", "%#{name}%".downcase) }
   scope :state_scope, -> (state){ where("lower(state) like ?", "%#{state}%".downcase) }
   scope :mailingaddress_scope, -> (mailingaddress){ where("lower(mailingaddress) like ?", "%#{mailingaddress}%".downcase) }

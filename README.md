@@ -1,12 +1,12 @@
 # National Park API
 
-#### This is a API Application built using Ruby on Rails.  July 16, 2017
+#### This is a API Application built using Ruby on Rails.  July 21, 2017
 
 #### By Jennifer Kinsey
 
 ## Description
 
-This is an API that includes (fake) data for National Parks.  It includes multiple scopes listed below for querying. It includes Authentication using Devise and JWT tokens.
+This is an API that includes (fake) data for National Parks.  It includes multiple scopes listed below for querying. It includes Authentication using Devise and JWT tokens and Versioning.
 
 Anyone can access:
 -- GET requests for Parks
